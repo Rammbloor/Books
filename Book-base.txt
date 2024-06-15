@@ -1,5 +1,0 @@
-|Book title| - Jojo |Author| - Reference |Number of pages| - 777
-|Book title| - Война и мир |Author| - Лев Толстой |Number of pages| - 1300
-|Book title| - Мастер и Маргарита |Author| - Михаил Булгаков |Number of pages| - 528
-
-
