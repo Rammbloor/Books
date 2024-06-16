@@ -1,5 +1,6 @@
-|Book title| - Jojo |Author| - Reference |Number of pages| - 777
-|Book title| - Война и мир |Author| - Лев Толстой |Number of pages| - 1300
-|Book title| - Мастер и Маргарита |Author| - Михаил Булгаков |Number of pages| - 528
-
-
+0|Book title| - Jojo |Author| - Reference |Number of pages| - 777
+1|Book title| - Война и Мир |Author| - Лев Толстой |Number of pages| - 1300
+2|Book title| - Мастер и Маргарита |Author| - Михаил Булгаков |Number of pages| - 528
+3|Book title| - Собор Парижской Богоматери |Author| - Войнич |Number of pages| - 113
+4|Book title| - Rammbloor Nigger |Author| - Stormm |Number of pages| - 1
+5|Book title| - Stormm Nigger Too |Author| - Rammbloor |Number of pages| - 1
