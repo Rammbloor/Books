@@ -9,17 +9,17 @@ import (
 )
 
 func DeleteBook() {
-	BookBase, err := os.ReadFile("Book-base.txt")
+	bookBase, err := os.ReadFile("Book-base.txt")
 	if err != nil { //
 		fmt.Println("Ошибка чтения файла:", err)
 		os.Exit(1)
 	}
 
 	// вывод всех книг + скан номера нужной книги
-	Book := strings.Split(string(BookBase), "\n")
+	book := strings.Split(string(bookBase), "\n")
 
 	fmt.Println("Выберите номер книги для удаления данных и введите в консоль!")
-	for i, v := range Book {
+	for i, v := range book {
 		fmt.Printf("%d: %s\n", i, v)
 	}
 
@@ -27,7 +27,7 @@ func DeleteBook() {
 	scan.Scan()
 	bookNumber, _ := strconv.Atoi(scan.Text())
 
-	if bookNumber < 0 || bookNumber > len(Book)-1 {
+	if bookNumber < 0 || bookNumber > len(book)-1 {
 		fmt.Println("Введите корректный номер")
 
 	} else {
@@ -36,9 +36,8 @@ func DeleteBook() {
 			fmt.Println("Ошибка создания временного файла:", err)
 			return
 		}
-		defer tmpFile.Close()
 
-		for i, line := range Book {
+		for i, line := range book {
 			if i == bookNumber {
 				continue
 			}

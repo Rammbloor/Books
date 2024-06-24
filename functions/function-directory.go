@@ -1,20 +1,27 @@
 package functions
 
-import "data-project/methods"
+import (
+	"data-project/methods"
+	"fmt"
+)
 
 func FunctionSelection(s string) {
 
 	switch s {
-
-	case "ShowAll":
+	case "1":
 		methods.ShowAll()
-	case "AddBook":
+	case "2":
+		methods.ShowBookToNumber()
+	case "3":
 		var NewBook methods.Books
 		NewBook.AddBook()
-	case "UpdateBook":
+	case "4":
 		methods.UpdateBook()
-	case "DeleteBook":
+	case "5":
 		methods.DeleteBook()
+
+	default:
+		fmt.Println("Введите корректный номер!")
 
 	}
 

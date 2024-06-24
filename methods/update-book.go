@@ -26,24 +26,24 @@ func newBook() string {
 	fmt.Println("Введите количество страниц в книге")
 	scNumber := bufio.NewScanner(os.Stdin)
 	scNumber.Scan()
-	sumOfPages, _ := strconv.Atoi(" |Number of pages| - " + scNumber.Text())
+	sumOfPages := " |Number of pages| - " + scNumber.Text()
 
-	newBook := name + author + strconv.Itoa(sumOfPages)
+	newBook := name + author + sumOfPages
 	return newBook
 }
 
 func UpdateBook() {
-	BookBase, err := os.ReadFile("Book-base.txt")
+	bookBase, err := os.ReadFile("Book-base.txt")
 	if err != nil { //
 		fmt.Println("Ошибка чтения файла:", err)
 		os.Exit(1)
 	}
 
 	// вывод всех книг + скан номера нужной книги
-	Book := strings.Split(string(BookBase), "\n")
+	book := strings.Split(string(bookBase), "\n")
 
 	fmt.Println("Выберите номер книги для перезаписи данных и введите в консоль!")
-	for i, v := range Book {
+	for i, v := range book {
 		fmt.Printf("%d: %s\n", i, v)
 	}
 	// Считываем с консоли номер строчки книги
@@ -51,7 +51,7 @@ func UpdateBook() {
 	scan.Scan()
 	bookNumber, _ := strconv.Atoi(scan.Text())
 
-	if bookNumber < 0 || bookNumber > len(Book)-1 {
+	if bookNumber < 0 || bookNumber > len(book)-1 {
 		fmt.Println("Введите корректный номер")
 
 	} else {
@@ -64,13 +64,12 @@ func UpdateBook() {
 			fmt.Println("Ошибка создания временного файла:", err)
 			return
 		}
-		defer tmpFile.Close()
 
 		//  переписываем старые данные вов временный файл
-		for i, line := range Book {
+		for i, line := range book {
 			if i == bookNumber {
 
-				line = newBook()
+				line = strconv.Itoa(i) + newBook()
 			}
 			_, err := tmpFile.WriteString(line + "\n")
 			if err != nil {
